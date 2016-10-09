@@ -1,0 +1,13 @@
+<launch>
+
+  <include file="$(find freenect_launch)/launch/freenect.launch"/>
+
+  <node pkg="kinect_pose" type="robot_setup_tf" name="robot_setup_tf"/>
+
+  <arg name="image" default="/camera/depth/image_raw"/>
+  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan" args="$(arg image)"/>
+
+  
+
+ 
+</launch>
